@@ -9,8 +9,8 @@ import (
 	"regexp"
 	"strings"
 
-	ascii "ascii/utilities"
 	"ascii/colors"
+	ascii "ascii/utilities"
 )
 
 func main() {
@@ -18,38 +18,37 @@ func main() {
 		fmt.Println("Usage: go run . <input string>")
 		return
 	}
-
 	var input string
-	if len(os.Args[1:]) > 2 {
-		input = os.Args[4] // user input
-
-	} else {
-		input = os.Args[2]
-	}
-	// fmt.Println(len(input))
 
 	var color string
 	var letterToBeColored string
 	letters := false
 
 	flag.StringVar(&color, "color", "", "the color desired by the user")
-	flag.StringVar(&letterToBeColored, "l", "", "the letter or letters that you can chose to be colored.")
 
 	flag.Parse()
 
-	pattern := `^--color=.+(.+)?(.)$`
+	pattern := `^--color=.+(.+)(.)$`
 
 	re := regexp.MustCompile(pattern)
 
 	arguments := strings.Join(os.Args[1:], " ")
 
-	if !re.MatchString(arguments) {
+	if re.MatchString(arguments) {
+		input = os.Args[3] // user input
+		letterToBeColored = os.Args[2]
+	}  else {
 		fmt.Println("Usage: go run . [OPTION] [STRING]")
-		fmt.Println("EX: go run . --color=< CAN'T BE EMPTY > <letters to be colored> something")
+		fmt.Println("EX: go run . --color=<color> <letters to be colored> something")
 		os.Exit(0)
-	} 
+	}
 
-	if color == ""{
+	if len(os.Args[1:]) == 2 {
+		input = os.Args[1]
+	}
+	// fmt.Println(len(input))
+
+	if color == "" {
 		fmt.Println("Usage: go run . [OPTION] [STRING]")
 		fmt.Println("EX: go run . --color=< CAN'T BE EMPTY > <letters to be colored> something")
 		os.Exit(0)
@@ -100,19 +99,28 @@ func main() {
 			}
 		}
 		for i := 0; i < 8; i++ { // this loop is responsible for the height of each character
-			for _, char := range part { // iterates through each character of the current word
+			for k, char := range part { // iterates through each character of the current word
 				startingIndex := ascii.GetStartingIndex(int(char)) // obtaining the starting position of the char
 				line := fileData[startingIndex+i]
 				if startingIndex >= 0 {
 					if letters {
-						if strings.ContainsRune(letterToBeColored, char) {
-							fmt.Printf("%s%s\x1b[0m", ansiColor, line)
-						} else {
-							fmt.Print(line)
-						}
-					}else {
+						if strings.Contains(input, letterToBeColored) {
+							index := strings.Index(input, letterToBeColored)
+							if strings.ContainsRune(letterToBeColored, char) && k >= index && index < k+len(letterToBeColored) {
+								fmt.Printf("%s%s\x1b[0m", ansiColor, line)
+							} else {
+								fmt.Print(line)
+							}
 
-						fmt.Printf("%s%s\x1b[0m", ansiColor, line)// printing the character line by line
+						} else {
+							if strings.ContainsRune(letterToBeColored, char) {
+								fmt.Printf("%s%s\x1b[0m", ansiColor, line)
+							} else {
+								fmt.Print(line)
+							}
+						}
+					} else {
+						fmt.Printf("%s%s\x1b[0m", ansiColor, line) // printing the character line by line
 					}
 				}
 			}
