@@ -55,7 +55,7 @@ func main() {
 			utils.ErrHandler(err)
 
 			//
-			rgbColors, e := utils.ProcessRGB(args[0])
+			rgbColors, e := utils.HandleRGB(args[0])
 			utils.ErrHandler(e)
 
 			//
