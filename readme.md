@@ -26,7 +26,7 @@ The above command will output the below ascii art
 
 <div style="color:red">
 
-```bash
+
  _    _          _   _          $
 | |  | |        | | | |         $
 | |__| |   ___  | | | |   ___   $
@@ -36,7 +36,6 @@ The above command will output the below ascii art
                                 $
                                 $
 $
-``` 
 </div>
 
 ### Error Handling
