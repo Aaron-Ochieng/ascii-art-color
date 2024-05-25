@@ -44,9 +44,6 @@ func main() {
 	}
 	input = utils.HandleBackspace(input)
 	input = strings.ReplaceAll(string(input), "\\t", "   ")
-	//
-
-	input = strings.ReplaceAll(input, "\\n", "\n")
 	inputParts, err := utils.HandleNewLine(input)
 	utils.ErrHandler(err)
 	//
