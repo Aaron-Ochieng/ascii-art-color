@@ -20,23 +20,22 @@ cd ascii-art-color
 ```
 
 ```go
-go run . --color=red "Hello\n" | cat -e
+go run . --color=red "Hello\n" | cat -E
 ```
-The above command will output the below ascii art
-
-<div style="color:red">
+The above command will output the below ascii art with the whole string painted ```red```
 
 
- _    _          _   _          $
-| |  | |        | | | |         $
-| |__| |   ___  | | | |   ___   $
-|  __  |  / _ \ | | | |  / _ \  $
-| |  | | |  __/ | | | | | (_) | $
-|_|  |_|  \___| |_| |_|  \___/  $
-                                $
-                                $
-$
-</div>
+The program only uses ```ANSII``` and ```RGB``` color format only. If ``hex`` or ```hsl``` values are used, error 
+```bash 
+Error:  color not found
+exit status 1
+``` 
+will be returned.
+
+To use RGB run 
+```bash
+go run . '--color=rgb(255, 0, 0)' Hello
+```
 
 ### Error Handling
 
