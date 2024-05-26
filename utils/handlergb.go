@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func ProcessRGB(s string) ([]int, error) {
+func HandleRGB(s string) ([]int, error) {
 	res := []int{}
 	val := ""
 	for _, char := range s {
