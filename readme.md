@@ -1,15 +1,9 @@
 
 ## Ascii-art-Color
-Ascii-art is a program which consists in receiving a string as an argument and outputting the string in a graphic representation using ASCII. Time to write big.
+Ascii-art is a program which consists in receiving a string as an argument and outputting the string in a colored graphic representation using ASCII.
 
-What we mean by a graphic representation using ASCII, is to write the string received using ASCII characters, as you can see in the example below:
+What we mean is we write the string received using a colored ASCII characters. You can define the color of your choice.
 
-
-### Features
-
-The program handles special characters such as newline ``(\\n)`` and tab ``(\\t)``.
-It reads from a file named ```standard.txt``` which contains the ASCII representations of characters from 32 - 126 .
-The program prints each character of the input string line by line to form the ASCII Art.
 
 ### Running the project
 To run the project open bash terminal and run.
@@ -46,7 +40,7 @@ If there are any issues while handling newline characters in the input string.
 
 #### Note
 
-This program is a simple implementation of ASCII Art and might need to be adjusted based on your specific use case.
+This program is a simple implementation of ASCII Art Color and might need to be adjusted based on your specific use case.
 
 ### Contribution
 Ascii-Art-Color is an open source project and we welcome contributions.
