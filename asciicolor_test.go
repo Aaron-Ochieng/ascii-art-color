@@ -43,44 +43,6 @@ func TestGetRGBValue(t *testing.T) {
 	}
 }
 
-// func TestProcessRGB(t *testing.T) {
-// 	tests := []struct {
-// 		name    string
-// 		s       string
-// 		want    []int
-// 		wantErr bool
-// 	}{
-// 		{
-// 			name:    "Valid RGB",
-// 			s:       "255, 255, 255",
-// 			want:    []int{255, 255, 255},
-// 			wantErr: false,
-// 		},
-// 		{
-// 			name:    "Invalid RGB - too many values",
-// 			s:       "255, 255, 255, 255",
-// 			want:    []int{},
-// 			wantErr: true,
-// 		},
-// 		{
-// 			name:    "Invalid RGB - value out of range",
-// 			s:       "255, 255, 256",
-// 			want:    []int{},
-// 			wantErr: true,
-// 		},
-// 	}
-
-// 	for _, tt := range tests {
-// 		t.Run(tt.name, func(t *testing.T) {
-// 			_, err := utils.HandleRGB(tt.s)
-// 			if (err != nil) != tt.wantErr {
-// 				t.Errorf("ProcessRGB() error = %v, wantErr %v", err, tt.wantErr)
-// 				return
-// 			}
-// 		})
-// 	}
-// }
-
 func TestRGB_CONVERTER(t *testing.T) {
 	tests := []struct {
 		name  string
