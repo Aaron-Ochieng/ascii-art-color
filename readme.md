@@ -1,5 +1,5 @@
 
-## Ascii-art
+## Ascii-art-Color
 Ascii-art is a program which consists in receiving a string as an argument and outputting the string in a graphic representation using ASCII. Time to write big.
 
 What we mean by a graphic representation using ASCII, is to write the string received using ASCII characters, as you can see in the example below:
@@ -48,7 +48,10 @@ If there are any issues while handling newline characters in the input string.
 
 This program is a simple implementation of ASCII Art and might need to be adjusted based on your specific use case.
 
+### Contribution
+Ascii-Art-Color is an open source project and we welcome contributions.
 
+If you want to contribute, fork and make changes.
 ### Contributors
 
 <table>
