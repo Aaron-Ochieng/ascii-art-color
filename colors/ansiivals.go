@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// checks if the flag is ansii
 func AnsiiRGB(s string) ([]int, error) {
 	color := ""
 	end := len(s)

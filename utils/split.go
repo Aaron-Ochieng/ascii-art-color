@@ -4,10 +4,15 @@ import "strings"
 
 func SplitWord(s1 string, s []string) [][]TobeColored {
 	var arr [][]TobeColored
+
+	// loop over the  slice of strings
 	for _, s2 := range s {
+		// split the string according to s1
 		split := strings.Split(s2, s1)
 		result := make([]TobeColored, 0, len(split)*2-1)
 
+
+		// Given pinghellpot, it splits to ->["ping","pot"]
 		for i, s := range split {
 			if i != 0 {
 				result = append(result, TobeColored{s1, true})
